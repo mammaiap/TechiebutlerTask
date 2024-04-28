@@ -18,6 +18,9 @@
 		4A997E3C2BDE30C900F1DECC /* PostLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E3B2BDE30C900F1DECC /* PostLoader.swift */; };
 		4A997E3F2BDE315D00F1DECC /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E3E2BDE315D00F1DECC /* HTTPClient.swift */; };
 		4A997E412BDE317900F1DECC /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E402BDE317900F1DECC /* URLSessionHTTPClient.swift */; };
+		4A997E442BDE31DF00F1DECC /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E432BDE31DF00F1DECC /* HTTPURLResponse+StatusCode.swift */; };
+		4A997E462BDE31FE00F1DECC /* PostItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E452BDE31FE00F1DECC /* PostItemsMapper.swift */; };
+		4A997E482BDE321C00F1DECC /* RemotePostLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E472BDE321C00F1DECC /* RemotePostLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		4A997E3B2BDE30C900F1DECC /* PostLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLoader.swift; sourceTree = "<group>"; };
 		4A997E3E2BDE315D00F1DECC /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		4A997E402BDE317900F1DECC /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		4A997E432BDE31DF00F1DECC /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
+		4A997E452BDE31FE00F1DECC /* PostItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemsMapper.swift; sourceTree = "<group>"; };
+		4A997E472BDE321C00F1DECC /* RemotePostLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePostLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 		4A997E062BDE2F9100F1DECC /* TechiebutlerTask */ = {
 			isa = PBXGroup;
 			children = (
+				4A997E422BDE31C500F1DECC /* PostAPI */,
 				4A997E3D2BDE313B00F1DECC /* Network */,
 				4A997E382BDE308F00F1DECC /* PostFeature */,
 				4A997E072BDE2F9100F1DECC /* AppDelegate.swift */,
@@ -125,6 +132,16 @@
 				4A997E402BDE317900F1DECC /* URLSessionHTTPClient.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		4A997E422BDE31C500F1DECC /* PostAPI */ = {
+			isa = PBXGroup;
+			children = (
+				4A997E432BDE31DF00F1DECC /* HTTPURLResponse+StatusCode.swift */,
+				4A997E452BDE31FE00F1DECC /* PostItemsMapper.swift */,
+				4A997E472BDE321C00F1DECC /* RemotePostLoader.swift */,
+			);
+			path = PostAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,10 +247,13 @@
 			files = (
 				4A997E412BDE317900F1DECC /* URLSessionHTTPClient.swift in Sources */,
 				4A997E0C2BDE2F9100F1DECC /* ViewController.swift in Sources */,
+				4A997E482BDE321C00F1DECC /* RemotePostLoader.swift in Sources */,
 				4A997E082BDE2F9100F1DECC /* AppDelegate.swift in Sources */,
 				4A997E3F2BDE315D00F1DECC /* HTTPClient.swift in Sources */,
 				4A997E0A2BDE2F9100F1DECC /* SceneDelegate.swift in Sources */,
 				4A997E3A2BDE30A900F1DECC /* Post.swift in Sources */,
+				4A997E462BDE31FE00F1DECC /* PostItemsMapper.swift in Sources */,
+				4A997E442BDE31DF00F1DECC /* HTTPURLResponse+StatusCode.swift in Sources */,
 				4A997E3C2BDE30C900F1DECC /* PostLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
