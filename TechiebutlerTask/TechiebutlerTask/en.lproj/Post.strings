@@ -1,0 +1,11 @@
+/* 
+  Post.strings
+  TechiebutlerTask
+
+  Created by Muthulingam on 28/04/24.
+  
+*/
+
+"text.postlistview.title" = "Post List";
+"text.post.connection.error" = "Couldn't connect to server";
+"text.postdetailview.title" = "Post Detail";
