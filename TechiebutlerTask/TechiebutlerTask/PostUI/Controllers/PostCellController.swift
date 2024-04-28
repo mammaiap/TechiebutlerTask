@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 final class PostCellController: Hashable, Equatable{
-    private let viewModel: PostViewModel
+    private let viewModel: PostCellViewModel
     private var cell: PostCell?
 
-    init(viewModel: PostViewModel) {
+    init(viewModel: PostCellViewModel) {
         self.viewModel = viewModel
     }
 

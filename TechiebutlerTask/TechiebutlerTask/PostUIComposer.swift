@@ -31,7 +31,7 @@ final class PostUIComposer {
     private static func adaptPostToCellControllers(forwardingTo controller: PostListViewController) -> ([Post]) -> Void {
         return { [weak controller] feed in
             let newItems = feed.map { model in
-                PostCellController(viewModel: PostViewModel(model: model))
+                PostCellController(viewModel: PostCellViewModel(model: model))
             }
             controller?.displayNewlyFetchedItems(newItems)            
         }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class PostViewModel{
+final class PostCellViewModel{
     private let model: Post
 
     init(model: Post) {
@@ -16,7 +16,7 @@ final class PostViewModel{
     }    
 }
 
-extension PostViewModel{
+extension PostCellViewModel{
     
     var id: String {
         return "\(model.id)"
@@ -28,7 +28,7 @@ extension PostViewModel{
     
 }
 
-extension PostViewModel{
+extension PostCellViewModel{
     func getPostModel() -> Post {
         return model
     }

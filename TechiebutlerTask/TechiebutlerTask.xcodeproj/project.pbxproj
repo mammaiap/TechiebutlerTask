@@ -21,7 +21,7 @@
 		4A997E442BDE31DF00F1DECC /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E432BDE31DF00F1DECC /* HTTPURLResponse+StatusCode.swift */; };
 		4A997E462BDE31FE00F1DECC /* PostItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E452BDE31FE00F1DECC /* PostItemsMapper.swift */; };
 		4A997E482BDE321C00F1DECC /* RemotePostLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E472BDE321C00F1DECC /* RemotePostLoader.swift */; };
-		4A997E4F2BDE32F500F1DECC /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E4D2BDE32F500F1DECC /* PostViewModel.swift */; };
+		4A997E4F2BDE32F500F1DECC /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E4D2BDE32F500F1DECC /* PostCellViewModel.swift */; };
 		4A997E502BDE32F500F1DECC /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E4E2BDE32F500F1DECC /* PostListViewModel.swift */; };
 		4A997E532BDE331800F1DECC /* PostCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E512BDE331800F1DECC /* PostCellController.swift */; };
 		4A997E542BDE331800F1DECC /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E522BDE331800F1DECC /* PostListViewController.swift */; };
@@ -70,7 +70,7 @@
 		4A997E432BDE31DF00F1DECC /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
 		4A997E452BDE31FE00F1DECC /* PostItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemsMapper.swift; sourceTree = "<group>"; };
 		4A997E472BDE321C00F1DECC /* RemotePostLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePostLoader.swift; sourceTree = "<group>"; };
-		4A997E4D2BDE32F500F1DECC /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		4A997E4D2BDE32F500F1DECC /* PostCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellViewModel.swift; sourceTree = "<group>"; };
 		4A997E4E2BDE32F500F1DECC /* PostListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 		4A997E512BDE331800F1DECC /* PostCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellController.swift; sourceTree = "<group>"; };
 		4A997E522BDE331800F1DECC /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				4A997E4E2BDE32F500F1DECC /* PostListViewModel.swift */,
-				4A997E4D2BDE32F500F1DECC /* PostViewModel.swift */,
+				4A997E4D2BDE32F500F1DECC /* PostCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -392,7 +392,7 @@
 				4A997E532BDE331800F1DECC /* PostCellController.swift in Sources */,
 				4A997E3A2BDE30A900F1DECC /* Post.swift in Sources */,
 				4A997E612BDE338700F1DECC /* PostCell.swift in Sources */,
-				4A997E4F2BDE32F500F1DECC /* PostViewModel.swift in Sources */,
+				4A997E4F2BDE32F500F1DECC /* PostCellViewModel.swift in Sources */,
 				4A997E702BDE3B4500F1DECC /* PostDetailViewModel.swift in Sources */,
 				4A997E502BDE32F500F1DECC /* PostListViewModel.swift in Sources */,
 				4A997E592BDE336D00F1DECC /* UITableView+Dequeuing.swift in Sources */,
