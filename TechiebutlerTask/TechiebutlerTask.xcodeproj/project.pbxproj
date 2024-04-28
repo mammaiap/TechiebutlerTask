@@ -14,6 +14,8 @@
 		4A997E112BDE2F9200F1DECC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A997E102BDE2F9200F1DECC /* Assets.xcassets */; };
 		4A997E142BDE2F9200F1DECC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4A997E132BDE2F9200F1DECC /* Base */; };
 		4A997E1F2BDE2F9200F1DECC /* TechiebutlerTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E1E2BDE2F9200F1DECC /* TechiebutlerTaskTests.swift */; };
+		4A997E3A2BDE30A900F1DECC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E392BDE30A900F1DECC /* Post.swift */; };
+		4A997E3C2BDE30C900F1DECC /* PostLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E3B2BDE30C900F1DECC /* PostLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		4A997E1A2BDE2F9200F1DECC /* TechiebutlerTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechiebutlerTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A997E1E2BDE2F9200F1DECC /* TechiebutlerTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechiebutlerTaskTests.swift; sourceTree = "<group>"; };
 		4A997E372BDE2FB500F1DECC /* TechiebutlerTask.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TechiebutlerTask.xctestplan; sourceTree = "<group>"; };
+		4A997E392BDE30A900F1DECC /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		4A997E3B2BDE30C900F1DECC /* PostLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 		4A997E062BDE2F9100F1DECC /* TechiebutlerTask */ = {
 			isa = PBXGroup;
 			children = (
+				4A997E382BDE308F00F1DECC /* PostFeature */,
 				4A997E072BDE2F9100F1DECC /* AppDelegate.swift */,
 				4A997E092BDE2F9100F1DECC /* SceneDelegate.swift */,
 				4A997E0B2BDE2F9100F1DECC /* ViewController.swift */,
@@ -97,6 +102,15 @@
 				4A997E1E2BDE2F9200F1DECC /* TechiebutlerTaskTests.swift */,
 			);
 			path = TechiebutlerTaskTests;
+			sourceTree = "<group>";
+		};
+		4A997E382BDE308F00F1DECC /* PostFeature */ = {
+			isa = PBXGroup;
+			children = (
+				4A997E392BDE30A900F1DECC /* Post.swift */,
+				4A997E3B2BDE30C900F1DECC /* PostLoader.swift */,
+			);
+			path = PostFeature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +217,8 @@
 				4A997E0C2BDE2F9100F1DECC /* ViewController.swift in Sources */,
 				4A997E082BDE2F9100F1DECC /* AppDelegate.swift in Sources */,
 				4A997E0A2BDE2F9100F1DECC /* SceneDelegate.swift in Sources */,
+				4A997E3A2BDE30A900F1DECC /* Post.swift in Sources */,
+				4A997E3C2BDE30C900F1DECC /* PostLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
