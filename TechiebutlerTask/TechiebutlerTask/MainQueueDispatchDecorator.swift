@@ -1,0 +1,38 @@
+//
+//  MainQueueDispatchDecorator.swift
+//  TechiebutlerTask
+//
+//  Created by Muthulingam on 28/04/24.
+//
+
+import Foundation
+import UIKit
+
+
+final class MainQueueDispatchDecorator<T>{
+    private let decoratee: T
+    
+    init(decoratee: T) {
+        self.decoratee = decoratee
+    }
+    
+    func dispatch(completion: @escaping () -> Void) {
+        guard Thread.isMainThread else{
+            return DispatchQueue.main.async(execute: completion)
+        }
+        completion()
+    }
+}
+
+extension MainQueueDispatchDecorator: PostLoader where T == PostLoader {
+    func load(_ req: PagedPostRequest,completion: @escaping (PostLoader.Result) -> Void) {
+        decoratee.load(req) {[weak self] result in
+            self?.dispatch { completion(result) }
+        }
+    }
+    
+}
+
+
+
+
