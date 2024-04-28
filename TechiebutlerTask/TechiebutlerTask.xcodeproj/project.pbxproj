@@ -16,6 +16,8 @@
 		4A997E1F2BDE2F9200F1DECC /* TechiebutlerTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E1E2BDE2F9200F1DECC /* TechiebutlerTaskTests.swift */; };
 		4A997E3A2BDE30A900F1DECC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E392BDE30A900F1DECC /* Post.swift */; };
 		4A997E3C2BDE30C900F1DECC /* PostLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E3B2BDE30C900F1DECC /* PostLoader.swift */; };
+		4A997E3F2BDE315D00F1DECC /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E3E2BDE315D00F1DECC /* HTTPClient.swift */; };
+		4A997E412BDE317900F1DECC /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A997E402BDE317900F1DECC /* URLSessionHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		4A997E372BDE2FB500F1DECC /* TechiebutlerTask.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TechiebutlerTask.xctestplan; sourceTree = "<group>"; };
 		4A997E392BDE30A900F1DECC /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4A997E3B2BDE30C900F1DECC /* PostLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLoader.swift; sourceTree = "<group>"; };
+		4A997E3E2BDE315D00F1DECC /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		4A997E402BDE317900F1DECC /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 		4A997E062BDE2F9100F1DECC /* TechiebutlerTask */ = {
 			isa = PBXGroup;
 			children = (
+				4A997E3D2BDE313B00F1DECC /* Network */,
 				4A997E382BDE308F00F1DECC /* PostFeature */,
 				4A997E072BDE2F9100F1DECC /* AppDelegate.swift */,
 				4A997E092BDE2F9100F1DECC /* SceneDelegate.swift */,
@@ -111,6 +116,15 @@
 				4A997E3B2BDE30C900F1DECC /* PostLoader.swift */,
 			);
 			path = PostFeature;
+			sourceTree = "<group>";
+		};
+		4A997E3D2BDE313B00F1DECC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4A997E3E2BDE315D00F1DECC /* HTTPClient.swift */,
+				4A997E402BDE317900F1DECC /* URLSessionHTTPClient.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,8 +228,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A997E412BDE317900F1DECC /* URLSessionHTTPClient.swift in Sources */,
 				4A997E0C2BDE2F9100F1DECC /* ViewController.swift in Sources */,
 				4A997E082BDE2F9100F1DECC /* AppDelegate.swift in Sources */,
+				4A997E3F2BDE315D00F1DECC /* HTTPClient.swift in Sources */,
 				4A997E0A2BDE2F9100F1DECC /* SceneDelegate.swift in Sources */,
 				4A997E3A2BDE30A900F1DECC /* Post.swift in Sources */,
 				4A997E3C2BDE30C900F1DECC /* PostLoader.swift in Sources */,
