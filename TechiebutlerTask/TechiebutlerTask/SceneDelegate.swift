@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import os
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
 
     private lazy var baseURL = URL(string: "https://jsonplaceholder.typicode.com/posts")!
+    
+    private lazy var logger = Logger(subsystem: "com.muvee.TechiebutlerTask", category: "main")
     
     private lazy var httpClient: HTTPClient = {
             URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
@@ -37,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func makeAndShowPostListScene() -> PostListViewController {
-        let remotePostLoader = RemotePostLoader(baseURL: baseURL, client: httpClient)
+        let remotePostLoader = RemotePostLoader(baseURL: baseURL, client: HTTPClientProfilingDecorator(decoratee: httpClient, logger: logger))
         
         let postListViewController = PostUIComposer.postComposedWith(postLoader: remotePostLoader,onSelection: showPostDetailScene)
         
@@ -56,3 +59,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+private class HTTPClientProfilingDecorator: HTTPClient{
+    private let decoratee: HTTPClient
+    private let logger: Logger
+    
+    init(decoratee: HTTPClient, logger: Logger) {
+        self.decoratee = decoratee
+        self.logger = logger
+    }
+    
+    func get(_ request: URLRequest, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
+        logger.trace("Started loading URLRequest:\(request)")
+        let startTime = CACurrentMediaTime()
+        return decoratee.get(request) { [logger] result in
+            if case let .failure(error) = result{
+                logger.trace("failed to load URLRequest: \(request) with error:\(error.localizedDescription)")
+            }
+                
+            let finishedTime = CACurrentMediaTime()
+            let elapsed = finishedTime - startTime
+            logger.trace("Finished loading URLRequest:\(request) in \(elapsed) seconds")
+            completion(result)
+        }
+    }
+}
