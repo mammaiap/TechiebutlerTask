@@ -17,14 +17,14 @@ final class PostListViewModel {
     private var paginatedStart: Int = 0
     private let paginatedLimit: Int = 10
     private let paginatedMaxlimit: Int = 100
-    
-    
 
     private let postLoader: PostLoader
 
     init(postLoader: PostLoader) {
         self.postLoader = postLoader
     }
+    
+    private var memoizedPosts: [Int : [Post]] = [ : ]
 
 }
 
@@ -53,12 +53,17 @@ extension PostListViewModel{
 
 extension PostListViewModel{
     func loadPost() {
+        if let posts = memoizedPosts[paginatedStart] {            
+            self.onPostLoad?(posts)
+            self.paginatedStart += self.paginatedLimit
+        }
         onErrorStateChange?(.none)
         onLoadingStateChange?(true)
         
         postLoader.load(.init(start: paginatedStart, limit: paginatedLimit)) { [weak self] result in
             guard let self = self else { return }
             if let posts = try? result.get() {
+                memoizedPosts[paginatedStart] = posts
                 self.onPostLoad?(posts)
                 self.paginatedStart += self.paginatedLimit
             } else {
