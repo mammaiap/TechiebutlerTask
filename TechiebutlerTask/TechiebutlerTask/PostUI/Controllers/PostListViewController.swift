@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class PostListViewController: UITableViewController, UITableViewDataSourcePrefetching {
+final class PostListViewController: UITableViewController , UITableViewDataSourcePrefetching {
     private var isViewAppeared: Bool = false
     private var isLoadingMore: Bool = false
     @IBOutlet private(set) var errorView: ErrorView?
@@ -28,11 +28,7 @@ final class PostListViewController: UITableViewController, UITableViewDataSource
     }
 
 
-    var tableModel = [PostCellController]() {
-        didSet {
-            //tableView.reloadData()
-        }
-    }
+    var tableModel = [PostCellController]()
     
 
     @IBAction private func refresh() {
@@ -99,14 +95,13 @@ extension PostListViewController{
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if(indexPath.row == tableModel.count-1){
             if(tableView.isDragging){
-               
+                
                     if(!isLoadingMore && !viewModel.isLast){
                         isLoadingMore = true
                         self.fetchMoreItemsToDisplay()
                     }else{
                         self.hideSpinnerView()
                     }
-                
                 
             }
         }
@@ -124,7 +119,7 @@ extension PostListViewController{
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cancelCellControllerLoad(forRowAt: indexPath)
     }
-
+    
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
             cellController(forRowAt: indexPath).preload()
@@ -134,9 +129,7 @@ extension PostListViewController{
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach(cancelCellControllerLoad)
     }
-}
-
-private extension PostListViewController{
+    
     private func cellController(forRowAt indexPath: IndexPath) -> PostCellController {
         return tableModel[indexPath.row]
     }
@@ -149,26 +142,68 @@ private extension PostListViewController{
 extension PostListViewController{
     
     func displayNewlyFetchedItems(_ newItems: [PostCellController]){
-        //if let viewModel = viewModel{
+        
+        if(viewModel.isFirst){
             self.appendItems(newItems)
-        //}
+        }else{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ){
+                self.insertItems(newItems)
+            }
+            
+        }
+       
     }
     
-    func appendItems(_ newItems: [PostCellController]){
-        isLoadingMore = false
+    private func appendItems(_ newItems: [PostCellController]){
+       
         tableModel.append(contentsOf: newItems)
         tableView.reloadData()
+        isLoadingMore = false
+    }
+    
+    private func insertItems(_ newItems: [PostCellController]){
+        if(!newItems.isEmpty){
+            
+            let updatedCollections = newItems
+            
+            var insIndices = [IndexPath]()
+            var insertions = [PostCellController]()
+            
+            for item in updatedCollections {
+                if(!self.tableModel.contains(item)){
+                    let insIndex = self.tableModel.count
+                    self.tableModel.insert(item, at: insIndex)
+                    insertions.append(item)
+                }
+            }
+            
+            for ins in insertions {
+                if let index = self.tableModel.firstIndex(of: ins){
+                    insIndices.append(IndexPath(row: index, section: 0))
+                }
+            }
+            
+            self.tableView?.performBatchUpdates({
+                if(!insIndices.isEmpty){
+                    self.tableView?.insertRows(at: insIndices, with: .top)
+                }
+            }, completion: { _ in
+                
+            })
+           
+            isLoadingMore = false
+        }
     }
 }
 
 private extension PostListViewController{
     private func fetchMoreItemsToDisplay(){
+        
         showSpinnerView()
         refresh()
     }
     
-    private func showSpinnerView(){
-       
+    private func showSpinnerView(){       
             let spinner = UIActivityIndicatorView(style: .medium)
             spinner.startAnimating()
             spinner.frame = CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: 44)
@@ -178,7 +213,6 @@ private extension PostListViewController{
     }
     
     private func hideSpinnerView(){
-       
             self.tableView.tableFooterView = nil
             self.tableView.tableFooterView?.isHidden = true
        
