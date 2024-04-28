@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "8FF04FB8-49C5-4B9D-B2AE-F3FC7454CC1E",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TechiebutlerTask.xcodeproj",
+      "identifier" : "4A997E032BDE2F9100F1DECC",
+      "name" : "TechiebutlerTask"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:TechiebutlerTask.xcodeproj",
+        "identifier" : "4A997E192BDE2F9200F1DECC",
+        "name" : "TechiebutlerTaskTests"
+      }
+    }
+  ],
+  "version" : 1
+}
