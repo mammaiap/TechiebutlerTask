@@ -1,5 +1,5 @@
 //
-//  AlbumUIComposer.swift
+//  PostUIComposer.swift
 //  TechiebutlerTask
 //
 //  Created by Muthulingam on 28/04/24.

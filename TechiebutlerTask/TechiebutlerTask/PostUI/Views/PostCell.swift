@@ -20,7 +20,7 @@ final class PostCell: UITableViewCell {
         
         cellView.layer.cornerRadius = 7.0
         cellView.layer.masksToBounds = false
-        cellView.layer.shadowColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.25).cgColor
+        cellView.layer.shadowColor = UIColor.lightGray.cgColor
         cellView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
         cellView.layer.shadowOpacity = 1.0
         cellView.layer.shadowRadius = 3.0

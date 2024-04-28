@@ -45,8 +45,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
     }
 
-    private func showPostDetailScene(for model: Post) {
-        print(model.title)
+    private func showPostDetailScene(for model: Post) {       
+        
+        let detailController = PostDetailUIComposer.postDetailComposedWith(model: model)
+        
+        DispatchQueue.main.async{
+            self.navigationController.pushViewController(detailController, animated: true)
+        }
     }
 
 }
