@@ -42,9 +42,10 @@ final class PostUIComposer {
 private extension PostListViewController {
     static func makeWith(viewModel: PostListViewModel, onSelection: @escaping (Post) -> Void) -> PostListViewController {
         let bundle = Bundle(for: PostListViewController.self)
-        let storyboard = UIStoryboard(name: "Post", bundle: bundle)       
-        let postController = storyboard.instantiateInitialViewController() as! PostListViewController
-        postController.viewModel = viewModel
+        let storyboard = UIStoryboard(name: "Post", bundle: bundle)        
+        let postController = storyboard.instantiateInitialViewController{ coder in
+            PostListViewController(viewModel: viewModel, coder: coder)
+        }!
         postController.onSelection = onSelection
         return postController
     }

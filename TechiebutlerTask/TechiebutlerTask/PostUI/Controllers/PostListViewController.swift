@@ -15,10 +15,18 @@ final class PostListViewController: UITableViewController, UITableViewDataSource
     
     var onSelection: (Post) -> Void = { _ in }
     
-    var viewModel: PostListViewModel? {
-        didSet { bind() }
-    }
+    private var viewModel: PostListViewModel
    
+    init?(viewModel: PostListViewModel, coder: NSCoder) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+
+    @available(*, unavailable, renamed: "init(product:coder:)")
+    required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
+
 
     var tableModel = [PostCellController]() {
         didSet {
@@ -28,13 +36,14 @@ final class PostListViewController: UITableViewController, UITableViewDataSource
     
 
     @IBAction private func refresh() {
-        viewModel?.loadPost()
+        viewModel.loadPost()
     }
 }
 
 extension PostListViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
     }
     
     override func viewIsAppearing(_ animated: Bool) {
@@ -53,7 +62,7 @@ extension PostListViewController{
 
 extension PostListViewController{
     func bind() {
-        if let viewModel = viewModel{
+        
             title = viewModel.listViewtitle
             viewModel.onLoadingStateChange = { [weak self] isLoading in
                 guard let self = self else { return }
@@ -73,7 +82,7 @@ extension PostListViewController{
                     self.errorView?.message = nil
                 }
             }
-        }
+       
         
     }
 }
@@ -90,14 +99,13 @@ extension PostListViewController{
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if(indexPath.row == tableModel.count-1){
             if(tableView.isDragging){
-                if let viewModel = viewModel{
+               
                     if(!isLoadingMore && !viewModel.isLast){
                         isLoadingMore = true
                         self.fetchMoreItemsToDisplay()
                     }else{
                         self.hideSpinnerView()
                     }
-                }
                 
                 
             }
