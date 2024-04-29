@@ -6,6 +6,10 @@ i have separated business Logic, UI and Network like separate modules. so that w
 compose the modules in the composition root.and wrote the unit tests.
 
 
+
+https://github.com/mammaiap/TechiebutlerTask/assets/4545252/6fec9818-15b4-4a79-8674-dee2ecc87ab9
+
+
 Key features Implemented:
 • Data fetching and Rendering
 • Pagination
